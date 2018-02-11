@@ -1,9 +1,9 @@
 if(document.domain == "localhost") {
     AUDIOBRUSH_LOCATION = "http://localhost/audioBrush/";
 } else if(document.domain == "www.joelplow.co.uk") {
-    AUDIOBRUSH_LOCATION = "http://www.joelplow.co.uk/audioBrush/";
+    AUDIOBRUSH_LOCATION = "http://www.joelplow.co.uk/AudioBrush/";
 } else if(document.domain == "joelplow.co.uk") {
-    AUDIOBRUSH_LOCATION = "http://joelplow.cos.uk/audioBrush/";
+    AUDIOBRUSH_LOCATION = "http://joelplow.co.uk/AudioBrush/";
 }
 
 function loadScript(file, defer) {
@@ -40,6 +40,7 @@ loadScript("GenericTool.js");
 loadScript("WaveShaper.js");
 loadScript("OscTool.js");
 loadScript("BitCrusher.js");
+loadScript("FilterTool.js");
 loadScript("Brush.js");
 loadScript("TopTips.js");
 loadScript("loadUserSample.js");
@@ -48,10 +49,10 @@ loadScript("exportSample.js");
 
 loadScript("playback.js");
 
-loadScript("DOMShortcuts.jS");
+loadScript("DOMShortcuts.js");
 
 loadStylesheet("interface.css");
-loadStylesheet("waveshaper.css");
+loadStylesheet("WaveShaper.css");
 loadStylesheet("osctool.css");
 loadStylesheet("bitcrusher.css");
 loadStylesheet("TopTips.css");
