@@ -1,0 +1,35 @@
+.waveshaper {
+    display:inline-block;
+    display:inline-block;
+    background-color:#333;
+    
+    width:600px;
+    height:200px;
+}
+.waveshaper>h2 {
+    padding:0px;
+    padding-left:10px;
+    margin:0px;
+    color:white;
+    background-color:black;
+    font-family:sans-serif;
+    font-size:13px;
+}
+.waveshaper>canvas.visualiser {
+    background-color:#000;
+    float:left;
+    margin:10px;
+}
+.waveshaper>.inputWrapper {
+    margin:2px;
+    padding:5px;
+    background-color:#ccc;
+}
+.waveshaper>.inputWrapper>label {
+    display: inline-block;
+    width:75px;
+    text-align:right;
+}
+.waveshaper>.inputWrapper>input {
+    width:300px;
+}

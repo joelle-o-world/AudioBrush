@@ -1,0 +1,13 @@
+.toptips {
+    background-color:black;
+    color:white;
+    padding:5px;
+    text-align: center;
+}
+
+#tipswrapper {
+    position:fixed;
+    bottom:0px;
+    left:0px;
+    right:0px;
+}

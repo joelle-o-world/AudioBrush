@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>AudioBrush</title>
+        <script src="boot.js" type="text/javascript"></script>
+        <script>
+            function chooseTool1() {
+                audioBrush.selectTool(new audioBrush.WaveShaper());
+                audioBrush.selectBrush(new audioBrush.Brush());
+                audioBrush.selectedBrush.xL = -50;
+                audioBrush.selectedBrush.xR = 50;
+            }
+            function chooseTool2() {
+                audioBrush.selectTool(new audioBrush.OscTool());
+                audioBrush.selectBrush(new audioBrush.Brush());
+                audioBrush.selectedBrush.xL = -250;
+                audioBrush.selectedBrush.xR = 250;
+            }
+            function chooseTool3() {
+                audioBrush.selectTool(new audioBrush.BitCrusher());
+                audioBrush.selectBrush(new audioBrush.Brush());
+                audioBrush.selectedBrush.xL = -50;
+                audioBrush.selectedBrush.xR = 50;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="toolbox">
+            <h3>system:</h3>
+            <input type="file" onchange="audioBrush.loadUserSample(this.files[0])" />
+            <button onclick="audioBrush.exportSample()">save</button>
+            <h3>tools:</h3>
+            <button class="tool" onclick="chooseTool1()">W</button>
+            <button class="tool" onclick="chooseTool2()">O</button>
+            <button class="tool" onclick="chooseTool3()">B</button>
+            <h3>brushes:</h3>
+        </div>
+        <canvas id="mainSample" class="waveDisplay" width="800px" height="200px"></canvas>
+        <div id="playback">
+            <button onclick="disp.sample.play()">play!</button>
+        </div>
+        <div id="cursorInfo" display="none">INFO</div>
+        <div id="brushInspectorWrapper"></div>
+        <div id="toolInspector"></div>
+        <div id="tipsWrapper"></div>
+    </body>
+</html>

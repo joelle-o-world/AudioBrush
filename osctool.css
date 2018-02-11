@@ -1,0 +1,35 @@
+.osctool {
+    display:inline-block;
+    display:inline-block;
+    background-color:#333;
+    
+    height:200px;
+}
+.osctool>h2 {
+    padding:0px;
+    padding-left:10px;
+    margin:0px;
+    color:white;
+    background-color:black;
+    font-family:sans-serif;
+    font-size:13px;
+}
+.osctool>canvas.visualiser {
+    display:block;
+    margin-right:auto;
+    margin-left:auto;
+}
+.osctool>.inputWrapper {
+    margin:2px;
+    padding:5px;
+    background-color:#ccc;
+}
+.osctool>.inputWrapper>label {
+    display: inline-block;
+    width:150px;
+    text-align:right;
+}
+.osctool>.inputWrapper>input, .osctool>.inputWrapper>select {
+    width:200px;
+    margin-left:10px;
+}
