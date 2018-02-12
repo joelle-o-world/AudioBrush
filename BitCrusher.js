@@ -1,6 +1,6 @@
 audioBrush.BitCrusher = function() {
     audioBrush.GenericTool.call(this);
-    
+
     this.bitDepth = 4;
     this.srr = 2; // sample rate reduction
 }
@@ -16,23 +16,25 @@ audioBrush.BitCrusher.prototype.__defineSetter__("bitDepth", function(bd) {
 
 
 audioBrush.BitCrusher.prototype.processOneSample = function(t, channel, sample, meta, I) {
+    var dry = sample.buffers[channel][Math.round(t)] || 0;
     t = Math.round(t/this.srr)*this.srr;
-    return Math.round(sample.A(t, channel)/this.division)*this.division;
+    var wet = Math.round(sample.A(t, channel)/this.division)*this.division;
+    return audioBrush.mixDryWet(1-meta.yControl, dry, wet);
 }
 
 audioBrush.BitCrusher.prototype.makeHtml = function() {
     var div = document.createElement("div");
     div.className = "bitcrusher";
-    
+
     div.header = document.createElement("h2");
     div.header.innerText = "Bit Crusher";
     div.bitDepth = createRangeInput(1, 16, 16);
     div.srr = createRangeInput(1,8, 64);
-    
+
     div.appendChild(div.header);
     div.appendChild(labelWrapInput(div.bitDepth, "Bit depth", "bitdepth"));
     div.appendChild(labelWrapInput(div.srr, "Sample Rate Reduction", "srr"));
-    
+
     return div;
 }
 

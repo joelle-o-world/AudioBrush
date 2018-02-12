@@ -20,10 +20,13 @@ window.onload = function() {
     disp.adoptCanvas( audioBrush.sampleDisplayDiv );
     disp.recalculateAndRedraw();
 
-    audioBrush.selectTool( new audioBrush.OscTool() );
+    /*audioBrush.selectTool( new audioBrush.OscTool() );
     audioBrush.selectBrush( new audioBrush.Brush() );
+    audioBrush.selectedBrush.xL = -50;
+    audioBrush.selectedBrush.xR = 50;*/
+    chooseTool2();
 
-    disp.canvas.addEventListener("mousemove", function(e) {
+    var mouseListenF = function(e) {
         var rect = this.getBoundingClientRect();
         var mouseX = e.clientX-rect.left;
         var mouseY = e.clientY-rect.top;
@@ -40,7 +43,10 @@ window.onload = function() {
                 audioBrush.selectedBrush.drawPreview(mouseX, mouseY, disp);
             }
         }
-    }, false);
+    };
+    disp.canvas.addEventListener("mousemove", mouseListenF, false);
+
+    disp.canvas.addEventListener("mousedown", mouseListenF, false);
 
 
 

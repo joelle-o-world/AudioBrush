@@ -25,7 +25,7 @@ function loadStylesheet(file) {
 }
 
 
-audioBrush = new Object();
+audioBrush = {};
 
 loadScript("interface.js");
 loadScript("Sample.js");
@@ -41,6 +41,7 @@ loadScript("WaveShaper.js");
 loadScript("OscTool.js");
 loadScript("BitCrusher.js");
 loadScript("FilterTool.js");
+loadScript("DelayTool.js");
 loadScript("Brush.js");
 loadScript("TopTips.js");
 loadScript("loadUserSample.js");

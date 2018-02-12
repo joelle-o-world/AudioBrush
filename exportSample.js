@@ -15,6 +15,6 @@ audioBrush.exportSample = function() {
 
     var link = document.createElement("A");
     link.href = uri;
-    link.download = "sample.wav";
+    link.download = "audiobrush output.wav";
     link.click();
 }

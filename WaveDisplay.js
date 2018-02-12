@@ -178,7 +178,6 @@ audioBrush.WaveDisplay.prototype.yAtX = function(x, channel) {
     var A = this.sample.A(t, channel); // takes care of defaulting undefined channel to 0
     return this.yAtA(A);
 }
-
 audioBrush.WaveDisplay.prototype.AAtY = function(y) {
     return (y-this.box.midY)/(this.box.height/2);
 }
@@ -336,6 +335,21 @@ audioBrush.WaveDisplay.prototype.drawRulers = function() {
     }
 }
 
+audioBrush.WaveDisplay.prototype.drawPlaybackCursor = function(t) {
+    if(this.playbackCursorDrawn)
+        this.redraw();
+
+    var x = this.xAtT(t);
+    if(x >= 0 && x < this.canvas.width) {
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = "#ff0"
+        this.ctx.moveTo(x, 0);
+        this.ctx.lineTo(x, this.canvas.height);
+        this.ctx.stroke();
+        this.playbackCursorDrawn = true;
+    }
+}
+
 audioBrush.WaveDisplay.prototype.clear = function() {
     this.ctx.clearRect(this.box.left, this.box.top, this.box.width, this.box.height);
 }
@@ -346,6 +360,7 @@ audioBrush.WaveDisplay.prototype.redraw = function() {
     this.drawGraph();
     this.drawRulers();
     this.brushPreviewDrawn = false;
+    this.playbackCursorDrawn = false;
 }
 audioBrush.WaveDisplay.prototype.recalculateAndRedraw = function() {
     this.calculateGraph();
