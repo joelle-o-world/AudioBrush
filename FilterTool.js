@@ -33,7 +33,7 @@ audioBrush.FilterTool.prototype.cursorInfo = function(x, y, disp) {
 
     var mAv = this.movingAverageLength*(y/disp.canvas.height);
     var f = 0.443*this.sampleRate/mAv;
-    return f+"Hz";
+    return "cutoff = " +Math.round(f)+"Hz";
     //return f+"Hz ("+hp+")";
 }
 

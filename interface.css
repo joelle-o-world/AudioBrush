@@ -3,6 +3,7 @@ body {
     margin:0px;
     padding:0px;
     margin-left:100px;
+    margin-top:50px;
 }
 .waveDisplay {
     background-color:#ccc;
@@ -16,9 +17,36 @@ body {
     color:white;
     opacity:0.5;
     border-radius:2px;
-    
+
     font-size:10px;
 }
+
+#topbar {
+    position:fixed;
+    left:70px;
+    right:0px;
+    top:0px;
+    padding:4px;
+    background-color:#ccb;
+    border-bottom:1px solid #333;
+}
+#playback {
+    display:inline-block;
+    margin-left:20px;
+    background-color:#aa9;
+    padding: 2px;
+}
+#playback>button {
+    background-color:#333;
+    color:#ccc;
+    padding:3px;
+}
+#playback>button.playButton {
+    color:#9f9;
+    border:1px solid #f9f;
+    background-color:#030
+}
+
 
 #toolbox {
     position:fixed;
@@ -28,9 +56,9 @@ body {
     background-color:#ccb;
     border-right:1px solid #333;
     width:70px;
-    
+
 }
-#toolbox>h3 {
+#toolbox>h3, .brushinspector >.inputWrapper>label {
     font-size:10px;
     padding:5px;
     margin:0px;
@@ -44,4 +72,14 @@ body {
     font-size:15px;
     width:32px;
     height:32px;
+}
+
+.brushinspector {
+    display:inline-block;
+    margin:5px;
+    pading:10px;
+}
+
+.brushInspector > .inputWrapper > input {
+    width:100%;
 }

@@ -45,10 +45,16 @@
         </script>
     </head>
     <body>
-        <div id="toolbox">
-            <h3>system:</h3>
+        <div id="topbar">
+            <button onclick="audioBrush.exportSample()">export</button>
             <input type="file" onchange="audioBrush.loadUserSample(this.files[0])" />
-            <button onclick="audioBrush.exportSample()">save</button>
+            <div id="playback">
+                <button onclick="disp.sample.play()" class="playButton">play!</button>
+                <button onclick="audioBrush.playback.play(disp.sample, true);" class="loopPlayButton">loop play!</button>
+                <button onclick="audioBrush.playback.stop();" class="stopButton">stop</button>
+            </div>
+        </div>
+        <div id="toolbox">
             <h3>tools:</h3>
             <button class="tool" onclick="chooseTool1()">W</button>
             <button class="tool" onclick="chooseTool2()">O</button>
@@ -56,16 +62,12 @@
             <button class="tool" onclick="chooseTool4()">LP</button>
             <button class="tool" onclick="chooseTool5()">HP</button>
             <button class="tool" onclick="chooseTool6()">D</button>
-            <h3>brushes:</h3>
+            <div id="brushInspectorWrapper"></div>
+
         </div>
         <canvas id="mainSample" class="waveDisplay" width="800px" height="200px"></canvas>
-        <div id="playback">
-            <button onclick="disp.sample.play()">play!</button>
-            <button onclick="audioBrush.playback.play(disp.sample, true);">loop play!</button>
-            <button onclick="audioBrush.playback.stop();">stop</button>
-        </div>
+
         <div id="cursorInfo" display="none">INFO</div>
-        <div id="brushInspectorWrapper"></div>
         <div id="toolInspector"></div>
         <div id="tipsWrapper"></div>
     </body>

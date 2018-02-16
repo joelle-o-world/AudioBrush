@@ -130,15 +130,15 @@ audioBrush.Brush.prototype.__defineGetter__("html", function() {
 
 audioBrush.Brush.prototype.makeHtml = function() {
     var div = document.createElement("div");
-    div.className = "brushinpsector";
+    div.className = "brushinspector";
 
-    div.header = document.createElement("h3");
-    div.header.innerText = "Brush Inspector";
+    //div.header = document.createElement("h3");
+    //div.header.innerText = "";
 
     div.sizeInp = createRangeInput(0, 100);
 
-    div.appendChild(div.header);
-    div.appendChild(labelWrapInput(div.sizeInp, "size"));
+    //div.appendChild(div.header);
+    div.appendChild(labelWrapInput(div.sizeInp, "brush size"));
 
     return div;
 }

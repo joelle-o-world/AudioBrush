@@ -109,25 +109,6 @@ audioBrush.Sample.prototype.setA = function(A, t, channel) {
 }
 
 audioBrush.Sample.prototype.play = function() {
-    /*var ctx = audioBrush.playback.ctx;
-    var buffer = ctx.createBuffer(this.numberOfChannels, this.durationInSamples, this.sampleRate);
-
-    for(var channel=0; channel<this.numberOfChannels; channel++) {
-        var data = buffer.getChannelData(channel);
-        for(var t=0; t<data.length; t++) {
-            data[t] = this.A(t, channel);
-        }
-    }
-
-    audioBrush.playback.stop();
-
-    var source = ctx.createBufferSource();
-    source.buffer = buffer;
-
-    audioBrush.playback.nowPlaying = source;
-
-    source.connect(audioBrush.playback.master);
-    source.start();*/
     audioBrush.playback.play(this);
 }
 
