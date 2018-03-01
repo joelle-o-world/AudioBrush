@@ -8,7 +8,6 @@ audioBrush.WaveDisplay = function() {
     this.sample = undefined;
 
     this.resolution = 1;
-    this.equilibriumLineColor = "#bbb";
     //this.rmsMapColor = "#333";
 
     this.brushPreviewDrawn = false;
@@ -93,11 +92,16 @@ audioBrush.WaveDisplay.prototype.adoptCanvas = function(canvas) {
     }
     this.canvas.waveDisplays.push(this);
     this.ctx = this.canvas.getContext("2d");
-    this.box = new audioBrush.BoundingBox(0, canvas.width, 0, canvas.height);
+    //this.box = new audioBrush.BoundingBox(0, canvas.width, 0, canvas.height);
+    this.measureBox();
     this.canvas.addEventListener("wheel", this, false);
     this.canvas.addEventListener("mousedown", this, false);
     this.canvas.addEventListener("mousemove", this, false);
     this.canvas.addEventListener("mouseup", this, false);
+}
+audioBrush.WaveDisplay.prototype.measureBox = function() {
+    this.box = new audioBrush.BoundingBox(0, this.canvas.width, 0, this.canvas.height);
+    return this.box;
 }
 
 

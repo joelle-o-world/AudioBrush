@@ -83,3 +83,11 @@ body {
 .brushInspector > .inputWrapper > input {
     width:100%;
 }
+
+#mainSample {
+    display:block;
+    margin-right:auto;
+    margin-left:auto;
+    margin-top: 20px;
+    margin-bottom:20px;
+}

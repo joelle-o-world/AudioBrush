@@ -1,5 +1,6 @@
 window.onload = function() {
 
+
     audioBrush.tips = new audioBrush.TopTips(
         "Scroll up/down to zoom in and out",
         "Scroll left/right to move arround the sample",
@@ -20,10 +21,6 @@ window.onload = function() {
     disp.adoptCanvas( audioBrush.sampleDisplayDiv );
     disp.recalculateAndRedraw();
 
-    /*audioBrush.selectTool( new audioBrush.OscTool() );
-    audioBrush.selectBrush( new audioBrush.Brush() );
-    audioBrush.selectedBrush.xL = -50;
-    audioBrush.selectedBrush.xR = 50;*/
     chooseTool2();
 
     var mouseListenF = function(e) {
@@ -71,6 +68,9 @@ window.onload = function() {
         audioBrush.cursorInfoDiv.style.left = e.clientX + 25;
         audioBrush.cursorInfoDiv.style.top = e.clientY + 25;
     }, false);
+
+    resizeCanvas();
+
 }
 
 
@@ -83,4 +83,16 @@ audioBrush.selectTool = function(tool) {
     this.selectedTool = tool;
     this.toolInspectorDiv.innerHTML = "";
     this.toolInspectorDiv.append(tool.html);
+}
+
+window.onresize = function() {
+    resizeCanvas();
+}
+
+function resizeCanvas() {
+    disp.canvas.width = disp.canvas.parentNode.clientWidth-150;
+    disp.canvas.height = (disp.canvas.parentNode.clientHeight-150);
+    console.log(disp.canvas.parentNode.clientWidth);
+    disp.measureBox();
+    disp.redraw();
 }
