@@ -42,33 +42,42 @@
                 audioBrush.selectedBrush.xL = -50;
                 audioBrush.selectedBrush.xR = 50;
             }
+            function setActive(chosenOne) {
+                var toolbox = document.getElementById("toolbox");
+                for(var i in toolbox.childNodes) {
+                    toolbox.childNodes[i].className = "tool";
+                }
+                chosenOne.blur();
+                chosenOne.className = "activeTool";
+            }
         </script>
     </head>
     <body>
         <div id="topbar">
-            <button onclick="audioBrush.exportSample()">export</button>
-            <input type="file" onchange="audioBrush.loadUserSample(this.files[0])" />
             <div id="playback">
-                <button onclick="disp.sample.play()" class="playButton">play!</button>
-                <button onclick="audioBrush.playback.play(disp.sample, true);" class="loopPlayButton">loop play!</button>
+                <button onclick="disp.sample.play()" class="playButton">play</button>
+                <button onclick="audioBrush.playback.play(disp.sample, true);" class="loopPlayButton">loop</button>
                 <button onclick="audioBrush.playback.stop();" class="stopButton">stop</button>
+            </div>
+            <div id="fileControl">
+                <button onclick="audioBrush.exportSample()">export</button>
+                <input type="file" onchange="audioBrush.loadUserSample(this.files[0])" />
             </div>
         </div>
         <div id="toolbox">
             <h3>tools:</h3>
-            <button class="tool" onclick="chooseTool1()">W</button>
-            <button class="tool" onclick="chooseTool2()">O</button>
-            <button class="tool" onclick="chooseTool3()">B</button>
-            <button class="tool" onclick="chooseTool4()">LP</button>
-            <button class="tool" onclick="chooseTool5()">HP</button>
-            <button class="tool" onclick="chooseTool6()">D</button>
+            <button class="tool" onclick="chooseTool1(); setActive(this)"><img src="waveshaper_btn.png" /></button>
+            <button class="tool" id="oscBtn" onclick="chooseTool2(); setActive(this)"><img src="osc_btn.png" /></button>
+            <button class="tool" onclick="chooseTool3(); setActive(this)"><img src="bitcrusher_btn.png" /></button>
+            <button class="tool" onclick="chooseTool6(); setActive(this)"><img src="delay_btn.png" /></button>
+            <button class="tool" onclick="chooseTool4(); setActive(this)"><img src="highpass_btn.png" /></button>
+            <button class="tool" onclick="chooseTool5(); setActive(this)"><img src="lowpass_btn.png" /></button>
+            <div id="toolInspector"></div>
             <div id="brushInspectorWrapper"></div>
-
         </div>
         <canvas id="mainSample" class="waveDisplay"></canvas>
 
         <div id="cursorInfo" display="none">INFO</div>
-        <div id="toolInspector"></div>
         <div id="tipsWrapper"></div>
     </body>
 </html>

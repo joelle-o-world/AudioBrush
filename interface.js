@@ -22,6 +22,7 @@ window.onload = function() {
     disp.recalculateAndRedraw();
 
     chooseTool2();
+    setActive(document.getElementById("oscBtn"));
 
     var mouseListenF = function(e) {
         var rect = this.getBoundingClientRect();
@@ -91,7 +92,7 @@ window.onresize = function() {
 
 function resizeCanvas() {
     disp.canvas.width = disp.canvas.parentNode.clientWidth-150;
-    disp.canvas.height = (disp.canvas.parentNode.clientHeight-150);
+    disp.canvas.height = 300;
     console.log(disp.canvas.parentNode.clientWidth);
     disp.measureBox();
     disp.redraw();

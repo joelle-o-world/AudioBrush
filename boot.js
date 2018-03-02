@@ -53,7 +53,8 @@ loadScript("playback.js");
 loadScript("DOMShortcuts.js");
 
 loadStylesheet("interface.css");
-loadStylesheet("WaveShaper.css");
-loadStylesheet("osctool.css");
-loadStylesheet("bitcrusher.css");
+loadStylesheet("toolInspector.css");
+//loadStylesheet("WaveShaper.css");
+//loadStylesheet("osctool.css");
+//loadStylesheet("bitcrusher.css");
 loadStylesheet("TopTips.css");

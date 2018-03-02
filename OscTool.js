@@ -1,6 +1,6 @@
 audioBrush.OscTool = function() {
     audioBrush.GenericTool.call(this);
-    
+
     this.fMin = 20;
     this.fMax = 22000/10;
     this.master = 0.9;
@@ -12,9 +12,9 @@ audioBrush.OscTool.prototype.constructor = audioBrush.OscTool();
 
 audioBrush.OscTool.prototype.processOneSample = function(t, channel, sample, meta, I) {
     var f = meta.f;
-    
+
     var phase = f * t/sample.sampleRate + meta.phaseOffset;
-    
+
     return this.waveFunction(phase) * this.master;
 }
 
@@ -48,33 +48,33 @@ audioBrush.OscTool.prototype.cursorInfo = function(x, y, disp) {
 
 audioBrush.OscTool.prototype.preStroke = function(shape, sample, meta) {
     meta.f = this.fAtY(meta.yControl);
-    
-    
+
+
     if(this.lastWave != undefined && meta.f != this.lastWave.f) {
         var dT = (meta.tO - this.lastWave.tO)/sample.sampleRate;
-        
+
         var keys = Object.keys(shape[0]);
         if(dT > 0) {
             var pivotT = parseInt(keys[keys.length-1]);
         } else {
             var pivotT = parseInt(keys[0]);
         }
-        
+
         var pivotPhase = (pivotT-this.lastWave.tO)*this.lastWave.f + this.lastWave.phaseOffset;
         pivotPhase %= 1;
         if(pivotPhase < 0) {
             pivotPhase += 1;
         }
-        
-        
+
+
         meta.phaseOffset = pivotPhase + (meta.tO - pivotT) * meta.f;
-        
+
         //console.log("instead, calculate phase from the sample closest to this.lastWave.tO ??");
     } else {
         meta.phaseOffset = 0;
     }
-    
-    
+
+
     this.lastWave = {
         "tO": meta.tO,
         "phaseOffset": meta.phaseOffset,
@@ -97,6 +97,8 @@ audioBrush.OscTool.prototype.waveFunctions.saw = function(phase) {
     return (phase%1)*2 - 1;
 }
 audioBrush.OscTool.prototype.waveFunctions.square = function(phase) {
+    if(phase%1 < 0)
+        phase = phase%1 + 1;
     return Math.round(phase%1)*2-1;
 }
 audioBrush.OscTool.prototype.waveFunctions.triangle = function(phase) {
@@ -113,7 +115,7 @@ audioBrush.OscTool.prototype.waveFunctions.triangle = function(phase) {
 audioBrush.OscTool.prototype.makeHtml = function() {
     var div = document.createElement("DIV");
     div.className = "osctool";
-    
+
     div.header = document.createElement("h2");
     div.header.innerText = "Oscillator Tool";
     div.fmin = createFrequencyInput();
@@ -121,7 +123,7 @@ audioBrush.OscTool.prototype.makeHtml = function() {
     div.gain = createRangeInput(0, 1);
     div.tempered = document.createElement("input");
     div.tempered.setAttribute("type", "checkbox");
-    
+
     div.waveform = document.createElement("select");
     for(var i in this.waveFunctions) {
         var option = document.createElement("option");
@@ -129,12 +131,12 @@ audioBrush.OscTool.prototype.makeHtml = function() {
         option.innerText = i;
         div.waveform.appendChild(option);
     }
-    
+
     div.visualiser = document.createElement("canvas");
     div.visualiser.className = "visualiser";
-    div.visualiser.width = 150;
+    div.visualiser.width = 70;
     div.visualiser.height = 30;
-    
+
     div.appendChild(div.header);
     div.appendChild(div.visualiser);
     div.appendChild(labelWrapInput(div.waveform, "Waveform", "waveform"));
@@ -147,7 +149,7 @@ audioBrush.OscTool.prototype.makeHtml = function() {
     // gain
     // waveform
     // temper
-    
+
     return div;
 }
 
@@ -158,7 +160,7 @@ audioBrush.OscTool.prototype.refreshHtml = function() {
         this._div.gain.value = this.master;
         this._div.waveform.value = this.waveform;
         this._div.tempered.checked = this.tempered;
-        
+
         this.refreshVisualiser();
     }
 }
@@ -187,7 +189,7 @@ audioBrush.OscTool.prototype.readHtml = function() {
         this.master = parseFloat(this._div.gain.value);
         this.waveform = this._div.waveform.value;
         this.tempered = this._div.tempered.checked;
-        
+
         this.refreshVisualiser();
     }
 }
