@@ -41,12 +41,12 @@ audioBrush.FilterTool.prototype.cursorInfo = function(x, y, disp) {
 audioBrush.FilterTool.prototype.makeHtml = function() {
     var div = document.createElement("div");
     div.header = document.createElement("h2");
-    div.header.innerText = "Weird Filter Tool";
+    div.header.innerText = "Filter Tool";
     div.appendChild(div.header);
 
-    div.f = createRangeInput(20, 20000);
+    //div.f = createRangeInput(20, 20000);
 
-    div.appendChild(labelWrapInput(div.f, "cut off"))
+    //div.appendChild(labelWrapInput(div.f, "cut off"))
 
     return div;
 }

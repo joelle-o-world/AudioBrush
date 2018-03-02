@@ -19,3 +19,11 @@ audioBrush.DelayTool.prototype.cursorInfo = function(x, y, disp) {
     var sampleDelay = -this.tap*(1-yControl*2);
     return "delay = "+Math.round(sampleDelay/disp.sample.sampleRate*1000) + "ms";
 }
+
+audioBrush.DelayTool.prototype.makeHtml = function() {
+    var div = document.createElement("DIV");
+    div.header = document.createElement("H2");
+    div.header.innerText = "Delay/Pattern-Stamp Tool";
+    div.appendChild(div.header);
+    return div;
+}
