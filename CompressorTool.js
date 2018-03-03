@@ -35,7 +35,7 @@ audioBrush.CompressorTool.prototype.makeHtml = function() {
     div.header = document.createElement("H2");
     div.header.innerText = "normaliser tool";
     div.info = document.createElement("P");
-    div.info.innerHTML = "y position of mouse control normalised level";
+    div.info.innerHTML = "y position of mouse controls normalised level";
     div.appendChild(div.header);
     div.appendChild(div.info)
     return div;
