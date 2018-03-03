@@ -42,6 +42,7 @@ loadScript("OscTool.js");
 loadScript("BitCrusher.js");
 loadScript("FilterTool.js");
 loadScript("DelayTool.js");
+loadScript("CompressorTool.js");
 loadScript("Brush.js");
 loadScript("TopTips.js");
 loadScript("loadUserSample.js");

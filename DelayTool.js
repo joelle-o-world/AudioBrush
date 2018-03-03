@@ -23,7 +23,7 @@ audioBrush.DelayTool.prototype.cursorInfo = function(x, y, disp) {
 audioBrush.DelayTool.prototype.makeHtml = function() {
     var div = document.createElement("DIV");
     div.header = document.createElement("H2");
-    div.header.innerText = "Delay/Pattern-Stamp Tool";
+    div.header.innerText = "Delay/Clone-Stamp Tool";
     div.appendChild(div.header);
     return div;
 }

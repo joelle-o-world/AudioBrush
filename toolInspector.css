@@ -45,3 +45,8 @@
     text-align:center;
     border:1px solid #442;
 }
+#toolInspector>div>p {
+    padding:5px;
+    font-family:sans-serif;
+    font-style: italic;
+}
