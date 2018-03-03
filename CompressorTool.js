@@ -21,7 +21,6 @@ audioBrush.CompressorTool.prototype.preStroke = function(shape, sample, meta) {
     //var rmsSum = Math.sqrt(sum);
     var ideal = Math.abs(meta.yControl-0.5)*2 * 0.8;
     meta.gainSf = peak!=0 ? ideal/peak : 1;
-    console.log(meta.gainSf);
 }
 
 audioBrush.CompressorTool.prototype.processOneSample = function(t, channel, sample, meta, I) {

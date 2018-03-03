@@ -49,6 +49,13 @@
                 audioBrush.selectedBrush.xR = 50;
                 //audioBrush.selectedBrush.weight = 0.1;
             }
+            function chooseTool8() {
+                audioBrush.selectTool(new audioBrush.GainTool());
+                audioBrush.selectBrush(new audioBrush.Brush());
+                audioBrush.selectedBrush.xL = -50;
+                audioBrush.selectedBrush.xR = 50;
+                //audioBrush.selectedBrush.weight = 0.1;
+            }
             function setActive(chosenOne) {
                 var toolbox = document.getElementById("toolbox");
                 for(var i in toolbox.childNodes) {
@@ -80,6 +87,7 @@
             <button class="tool" onclick="chooseTool4(); setActive(this)"><img src="filter_lowpass.png" /></button>
             <button class="tool" onclick="chooseTool5(); setActive(this)"><img src="filter_highpass.png" /></button>
             <button class="tool" onclick="chooseTool7(); setActive(this)"><img src="normalise.png" /></button>
+            <button class="tool" onclick="chooseTool8(); setActive(this)"><img src="normalise.png" /></button>
             <div id="toolInspector"></div>
             <div id="brushInspectorWrapper"></div>
         </div>

@@ -43,6 +43,7 @@ loadScript("BitCrusher.js");
 loadScript("FilterTool.js");
 loadScript("DelayTool.js");
 loadScript("CompressorTool.js");
+loadScript("GainTool.js");
 loadScript("Brush.js");
 loadScript("TopTips.js");
 loadScript("loadUserSample.js");
