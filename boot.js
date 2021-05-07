@@ -1,10 +1,12 @@
 if(document.domain == "localhost") {
-    AUDIOBRUSH_LOCATION = "http://localhost/audioBrush/";
+    AUDIOBRUSH_LOCATION = "/";
 } else if(document.domain == "www.joelplow.co.uk") {
     AUDIOBRUSH_LOCATION = "http://www.joelplow.co.uk/AudioBrush/";
 } else if(document.domain == "joelplow.co.uk") {
     AUDIOBRUSH_LOCATION = "http://joelplow.co.uk/AudioBrush/";
-}
+} else if(document.domain === "joel.forsale")
+  AUDIOBRUSH_LOCATION = "http://joel.forsale/AudioBrush/";
+else throw "Couldn't determine audiobrush location: "+document.domain;
 
 function loadScript(file, defer) {
 	var tag = document.createElement("script");
